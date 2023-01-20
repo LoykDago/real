@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encheres Par Mois</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Mois</th>
+            <th>Nombre d'ench&egrave;res</th>
+        </tr>
+        <tr th:each="epm : ${tousLesEPM}">
+            <td th:text="*{epm.mois}"></td>
+            <td th:text="*{epm.nbrencheres}"></td>
+        </tr>
+    </table>
+</body>
+</html>

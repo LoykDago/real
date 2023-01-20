@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Categorie</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body>
+    <h1>Categorie</h1>
+    <h1>AJOUT CATEGORIE </h1>
+    <form action="#"  th:action="@{../BackOffice/saveCategorie}" th:object="${categorie}"
+            method="POST">
+            <label>Nom Categorie</label>
+            <input type="text" field="*{intitulecategorieproduit}" name="intitulecategorieproduit"/>
+            <button type="submit" class="btn btn-info col-2">AJOUTER</button>
+    </form>
+
+    <table style="width:80%" border="1" class = "table table-striped table-responsive-md">
+    <thead>
+  <tr>
+    <th>Categorie</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="current:${categories}">
+        <td th:text="${current.intitulecategorieproduit }"></td>
+        <td>
+            <a class="btn btn-primary" th:href="@{../BackOffice/updateCategorie/{id}(id=${current.idcategorieproduit})}">Update</a>
+            <a class="btn btn-danger" th:href="@{../BackOffice/deleteCategorie/{id}(id=${current.idcategorieproduit})}">Delete</a>
+        </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

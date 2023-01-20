@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Employee Management System</h1>
+		<hr>
+		<h2>Update Categorie</h2>
+
+		<form action="#" th:action="@{/../BackOffice/saveCategorie}" th:object="${categorie}"
+			method="POST">
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{idcategorieproduit}" />
+			<label>Nom Categorie</label>
+            <input type="text" field="*{intitulecategorieproduit}" name="intitulecategorieproduit"/>
+            <button type="submit" class="btn btn-info col-2">UPDATE</button>
+		</form>	
+		<hr>
+	</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tous les soldes</title>
+</head>
+<style>
+    table, th, td {
+        border: 0.5px solid;    
+    }
+</style>
+<body>
+    <h3>Tous les soldes non valid&eacute;s</h3>
+    <div th:if="${ok != null}">
+        <p th:text="${ok}"></p>
+    </div>
+    <div th:if="${error != null}">
+        <p th:text="${error}"></p>
+    </div>
+    <table>
+        <tr>
+            <th>ID solde utilisateur</th>
+            <th>ID Utilisateur</th>
+            <th>Valeur</th>
+            <th>Date d'op&eacute;ration</th>
+        </tr>
+    <tr th:each="solde : ${tousLesSoldes}">
+        <td th:text="*{solde.idsoldeutilisateur}"></td>
+        <td th:text="*{solde.idutilisateur}"></td>
+        <td th:text="*{solde.valeur}"></td>
+        <td th:text="*{solde.dateoperation}"></td>
+        <td><a th:href="@{../BackOffice/ValiderSoldes/{id}(id=${solde.idsoldeutilisateur})}">Valider</a></td>
+    </tr>
+    </table>
+</body>
+</html>
